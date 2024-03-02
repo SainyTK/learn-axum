@@ -8,6 +8,7 @@ mod query_params;
 mod middleware_data;
 mod read_middleware_custom_header;
 mod set_middleware_custom_header;
+mod always_error;
 
 use axum::{
     http::Method, middleware, routing::{get, post}, Extension, Router
@@ -24,6 +25,8 @@ use query_params::query_params;
 use middleware_data::middleware_data;
 use read_middleware_custom_header::read_middleware_custom_header;
 use set_middleware_custom_header::set_middleware_custom_header;
+
+use self::always_error::always_error;
 
 #[derive(Clone)]
 pub struct SharedData {
@@ -48,6 +51,7 @@ pub fn create_routes() -> Router {
         .route("/mirror_headers", get(mirror_headers))
         .route("/mirror_custom_headers", get(mirror_custom_headers))
         .route("/shared_data", get(middleware_data))
+        .route("/always_error", get(always_error))
         .layer(cors)
         .layer(Extension(shared_data))
 }
