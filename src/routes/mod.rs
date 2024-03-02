@@ -12,6 +12,7 @@ mod read_middleware_custom_header;
 mod return_201;
 mod set_middleware_custom_header;
 mod validate_with_serde;
+mod custom_json_extractor;
 
 use axum::{
     http::Method,
@@ -34,7 +35,7 @@ use read_middleware_custom_header::read_middleware_custom_header;
 use return_201::return_201;
 use set_middleware_custom_header::set_middleware_custom_header;
 
-use self::{get_json::get_json, validate_with_serde::validate_with_serde};
+use self::{custom_json_extractor::custom_json_extractor, get_json::get_json, validate_with_serde::validate_with_serde};
 
 #[derive(Clone)]
 pub struct SharedData {
@@ -68,6 +69,7 @@ pub fn create_routes() -> Router {
         .route("/return_201", post(return_201))
         .route("/get_json", get(get_json))
         .route("/validate_with_serde", post(validate_with_serde))
+        .route("/custom_json_extractor", post(custom_json_extractor))
         .layer(cors)
         .layer(Extension(shared_data))
 }
