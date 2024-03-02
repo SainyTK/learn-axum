@@ -1,4 +1,5 @@
 # Rust API with Axum
+This repository is a workspace where I learn how to build an API server using Rust (Axum).
 
 ## VSCode extensions
 1. Rust-analyzer
