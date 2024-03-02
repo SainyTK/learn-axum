@@ -1,4 +1,5 @@
 mod always_error;
+mod get_json;
 mod hello_world;
 mod middleware_data;
 mod mirror_custom_headers;
@@ -32,6 +33,8 @@ use read_middleware_custom_header::read_middleware_custom_header;
 use return_201::return_201;
 use set_middleware_custom_header::set_middleware_custom_header;
 
+use self::get_json::get_json;
+
 #[derive(Clone)]
 pub struct SharedData {
     pub message: String,
@@ -62,6 +65,7 @@ pub fn create_routes() -> Router {
         .route("/shared_data", get(middleware_data))
         .route("/always_error", get(always_error))
         .route("/return_201", post(return_201))
+        .route("/get_json", get(get_json))
         .layer(cors)
         .layer(Extension(shared_data))
 }
