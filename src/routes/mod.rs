@@ -5,11 +5,10 @@ mod mirror_hello;
 mod mirror_json;
 mod path_variables;
 mod query_params;
+mod middleware_data;
 
 use axum::{
-    http::Method,
-    routing::{get, post},
-    Router,
+    http::Method, routing::{get, post}, Extension, Router
 };
 use tower_http::cors::{Any, CorsLayer};
 
@@ -20,11 +19,18 @@ use mirror_hello::mirror_hello;
 use mirror_json::mirror_json;
 use path_variables::{hardcoded_path, path_variables};
 use query_params::query_params;
+use middleware_data::middleware_data;
+
+#[derive(Clone)]
+pub struct SharedData {
+    pub message: String
+}
 
 pub fn create_routes() -> Router {
     let cors = CorsLayer::new()
         .allow_methods([Method::GET, Method::POST])
         .allow_origin(Any);
+    let shared_data = SharedData { message: "Hello from shared data".to_owned() };
 
     Router::new()
         .route("/", get(get_hello))
@@ -35,5 +41,7 @@ pub fn create_routes() -> Router {
         .route("/query_params", get(query_params))
         .route("/mirror_headers", get(mirror_headers))
         .route("/mirror_custom_headers", get(mirror_custom_headers))
+        .route("/shared_data", get(middleware_data))
         .layer(cors)
+        .layer(Extension(shared_data))
 }
