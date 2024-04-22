@@ -1,6 +1,5 @@
 mod routes;
 
-use axum;
 use routes::create_routes;
 
 pub async fn run() {

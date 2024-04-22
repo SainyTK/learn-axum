@@ -1,4 +1,4 @@
-use rust_simple_api::run;
+use learn_axum::run;
 
 #[tokio::main]
 async fn main() {

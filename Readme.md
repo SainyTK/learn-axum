@@ -20,7 +20,7 @@ This repository is a workspace where I learn how to build an API server using Ru
 3. `cargo add serde -F derive`
 
 ## Lesson learned
-1. Setting up an API server with Axum (Rust)
+1. <a href="./src/lib.rs">Setting up an API server with Axum (Rust)</a>
 2. Route creation
 3. Http request handling
 4. JSON data handling with `serde`

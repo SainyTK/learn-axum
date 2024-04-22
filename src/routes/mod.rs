@@ -34,8 +34,9 @@ use query_params::query_params;
 use read_middleware_custom_header::read_middleware_custom_header;
 use return_201::return_201;
 use set_middleware_custom_header::set_middleware_custom_header;
-
-use self::{custom_json_extractor::custom_json_extractor, get_json::get_json, validate_with_serde::validate_with_serde};
+use custom_json_extractor::custom_json_extractor;
+use get_json::get_json;
+use validate_with_serde::validate_with_serde;
 
 #[derive(Clone)]
 pub struct SharedData {
