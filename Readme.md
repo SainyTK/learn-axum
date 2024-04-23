@@ -21,15 +21,15 @@ This repository is a workspace where I learn how to build an API server using Ru
 
 ## Lesson learned
 1. <a href="./src/lib.rs">Setting up an API server with Axum (Rust)</a>
-2. Route creation
-3. Http request handling
-4. JSON data handling with `serde`
-5. Route params handling
-6. Query params handling
-7. Headers handling
-8. Middlewares + Customization
-9. Status Codes and response
-10. Input data validation with `validator`
+2. <a href="./src/routes/mod.rs">Route creation</a>
+3. <a href="./src/routes/mod.rs">Http request handling</a>
+4. <a href="src/routes/mirror_json.rs">JSON data handling with `serde`</a>
+5. <a href="src/routes/path_variables.rs">Route params handling</a>
+6. <a href="src/routes/query_params.rs">Query params handling</a>
+7. <a href="src/routes/mirror_custom_headers.rs">Headers handling</a>
+8. <a href="src/routes/middleware_data.rs">Middlewares + Customization</a>
+9. <a href="src/routes/return_201.rs">Status Codes and response</a>
+10. <a href="src/routes/custom_json_extractor.rs"> Input data validation with `validator`</a>
 
 ## In progress
 1. Database connection
