@@ -8,11 +8,17 @@ This repository is a workspace where I learn how to build an API server using Ru
 4. Crates
 5. Thunder Client
 
-## Hot reload
-1. Installation
+## Running the project
+1. Installation <br/>
 `cargo install cargo-watch`
-2. Usage
+2. Usage <br/>
 `cargo watch -x run`
+
+## Connecting to DB through SeaORM CLI
+1. Installation
+`cargo install sea-orm-cli`
+2. Usage <br/>
+`sea-orm-cli `
 
 ## Package installation examples
 1. `cargo add axum`
@@ -32,7 +38,7 @@ This repository is a workspace where I learn how to build an API server using Ru
 10. <a href="src/routes/custom_json_extractor.rs"> Input data validation with `validator`</a>
 
 ## In progress
-1. Database connection
+1. Database connection (Doing)
 2. Authentication (JWT)
 3. Route groping
 4. Http client
